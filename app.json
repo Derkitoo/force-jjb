@@ -17,8 +17,20 @@
     "plugins": [
       "expo-router",
       "expo-sqlite",
-      ["expo-notifications", { "color": "#2747B8" }]
+      [
+        "expo-notifications",
+        {
+          "color": "#2747B8"
+        }
+      ]
     ],
-    "experiments": { "typedRoutes": true }
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/force-jjb"
+    },
+    "web": {
+      "output": "single",
+      "bundler": "metro"
+    }
   }
 }

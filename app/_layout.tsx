@@ -9,6 +9,7 @@ import { flushQueue, refreshPremium } from '@/lib/sync';
 export default function RootLayout() {
   useEffect(() => {
     askPermission().catch(() => {});
+    if (!supabase) { initPurchases().catch(() => {}); return; }
     supabase.auth.getSession().then(({ data }) => {
       initPurchases(data.session?.user.id).catch(() => {});
       flushQueue().catch(() => {});

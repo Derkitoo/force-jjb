@@ -1,4 +1,4 @@
-import Storage from 'expo-sqlite/kv-store';
+import { kv } from './kv';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { generateProgram } from '@/domain/program';
@@ -107,6 +107,6 @@ export const useStore = create<State>()(
       setPremium: (premium) => set({ premium }),
       dequeue: (n) => set((s) => ({ queue: s.queue.slice(n) })),
     }),
-    { name: 'force-jjb', storage: createJSONStorage(() => Storage) },
+    { name: 'force-jjb', storage: createJSONStorage(() => kv) },
   ),
 );

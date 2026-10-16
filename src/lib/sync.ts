@@ -11,6 +11,7 @@ const UPSERT_KEYS: Record<string, string> = {
  * quand l'utilisateur est connecté et qu'il y a du réseau. Appelé au lancement et en fin de séance.
  */
 export async function flushQueue(): Promise<void> {
+  if (!supabase) return;
   const { data } = await supabase.auth.getSession();
   const userId = data.session?.user.id;
   if (!userId) return;
@@ -30,6 +31,7 @@ export async function flushQueue(): Promise<void> {
 }
 
 export async function refreshPremium(): Promise<void> {
+  if (!supabase) return;
   const { data } = await supabase.from('entitlements').select('premium, expires_at').maybeSingle();
   if (!data) return;
   const active = data.premium && (!data.expires_at || new Date(data.expires_at) > new Date());
