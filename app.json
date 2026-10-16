@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Force JJB",
+    "slug": "force-jjb",
+    "scheme": "forcejjb",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "bundleIdentifier": "fr.klabsolutions.forcejjb",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "fr.klabsolutions.forcejjb"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      ["expo-notifications", { "color": "#2747B8" }]
+    ],
+    "experiments": { "typedRoutes": true }
+  }
+}
